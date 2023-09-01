@@ -1,16 +1,24 @@
-const express = require('express');
-const routes = require('./routes');
-// import sequelize connection
+//loads required mosules
 
+const express = require('express');
+const sequelize = require('./config/connection');
+require('dotenv').config();
+//sets port
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+//uses express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(routes);
+// Import and use of routes
+const categoryRoutes = require('./routes/category-routes');
+const productRoutes = require('./routes/product-routes');
+const tagRoutes = require('./routes/tag-routes');
 
-// sync sequelize models to the database, then turn on the server
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/tags', tagRoutes);
+//listen to active port
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });

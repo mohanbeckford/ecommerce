@@ -1,6 +1,3 @@
--- DROP DATABASE
-DROP DATABASE IF EXISTS ecommerce_db;
+DROP DATABASE IF EXISTS products_db;
 
--- CREATE DATABASE
-CREATE DATABASE ecommerce_db;
-
+CREATE DATABASE products_db;
