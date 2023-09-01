@@ -1,8 +1,9 @@
+// loads modules
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection.js');
+const sequelize = require('../config/connection');
 
 class Tag extends Model {}
-
+//initializes tag table in databse
 Tag.init(
   {
     id: {
@@ -13,7 +14,6 @@ Tag.init(
     },
     tag_name: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
   },
   {
@@ -24,5 +24,5 @@ Tag.init(
     modelName: 'tag',
   }
 );
-
+//exports table tag
 module.exports = Tag;
