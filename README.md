@@ -22,4 +22,5 @@ THEN I am able to successfully create, update, and delete data in my database
 
 ## Mock-Up Video 
 
-![The below link is a video of the application](https://storyxpress.co/video/llzxznycxov2l5odq)
+https://storyxpress.co/video/llzxznycxov2l5odq
+
